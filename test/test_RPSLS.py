@@ -93,7 +93,7 @@ def test_lizard_wins():
         computer_action=GameAction.Lizard)
 
 
-@pytest.mark.rock
+@pytest.mark.ROCK
 def test_rock_loses():
     '''
     Rock pierde con Spock y Paper 
@@ -107,7 +107,7 @@ def test_rock_loses():
         computer_action=GameAction.Rock)
 
 
-@pytest.mark.rock
+@pytest.mark.ROCK
 def test_rock_wins():
     '''
     Rock gana a Scissors y Lizard 
@@ -121,7 +121,7 @@ def test_rock_wins():
         computer_action=GameAction.Rock)
 
 
-@pytest.mark.paper
+@pytest.mark.PAPER
 def test_paper_loses():
     '''
     Paper pierde con Scissors y Lizard 
@@ -135,7 +135,7 @@ def test_paper_loses():
         computer_action=GameAction.Paper)
 
 
-@pytest.mark.paper
+@pytest.mark.PAPER
 def test_paper_wins():
     '''
     Paper gana a Rock y Spock 
@@ -149,7 +149,7 @@ def test_paper_wins():
         computer_action=GameAction.Paper)
 
 
-@pytest.mark.scissors
+@pytest.mark.SCISSORS
 def test_scissors_loses():
     '''
     Scissors pierde con Spock y Rock 
@@ -163,7 +163,7 @@ def test_scissors_loses():
         computer_action=GameAction.Scissors)
 
 
-@pytest.mark.scissors
+@pytest.mark.SCISORS
 def test_scissors_wins():
     '''
     Scissors gana a Lizard y Paper 
