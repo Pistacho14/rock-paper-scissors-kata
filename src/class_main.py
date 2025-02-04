@@ -24,19 +24,33 @@ class MainGame:
         return self.user_action
     
 
-
     def assess_game(self, user_action, computer_action):
         if user_action == computer_action:
             return GameResult.TIE
 
         elif user_action == GameAction.ROCK:
-            return GameResult.VICTORY if computer_action == GameAction.SCISSOR else GameResult.DEFEAT
-            
+            if computer_action == GameAction.SCISSOR:
+                print("Rock smashes scissors. You won!")
+                return GameResult.VICTORY
+            else:
+                print("Paper covers rock. You lost!")
+                return GameResult.DEFEAT
+
         elif user_action == GameAction.PAPER:
-            return GameResult.VICTORY if computer_action == GameAction.ROCK else GameResult.DEFEAT
-            
+            if computer_action == GameAction.ROCK:
+                print("Paper covers rock. You won!")
+                return GameResult.VICTORY
+            else:
+                print("Scissors cuts paper. You lost!")
+                return GameResult.DEFEAT
+
         elif user_action == GameAction.SCISSOR:
-            return GameResult.VICTORY if computer_action == GameAction.PAPER else GameResult.DEFEAT
+            if computer_action == GameAction.PAPER:
+                print("Paper covers rock. You won!")
+                return GameResult.VICTORY
+            else:
+                print("Rock smashes scissors. You lost!")
+                return GameResult.DEFEAT
 
     def play_another_round(self):
         another_round = input("\nAnother round? (y/n): ")
@@ -56,4 +70,3 @@ class MainGame:
 
             if not self.play_another_round():
                 break
-        
