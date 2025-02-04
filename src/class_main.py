@@ -1,5 +1,5 @@
 import random
-from src.enum import GameAction
+from src.enum import GameAction, GameResult
 
 class MainGame:
 
@@ -25,28 +25,18 @@ class MainGame:
     
 
 
-    def assess_game(self):
-        if self.user_action == self.computer_action:
-            print(f"User and computer picked {self.user_action.name}. Draw game!")
-        
-        elif self.user_action == GameAction.ROCK:
-            if self.computer_action == GameAction.SCISSOR:
-                print("Rock smashes scissors. You won!")
-            else:
-                print("Paper covers rock. You lost!")
+    def assess_game(self, user_action, computer_action):
+        if user_action == computer_action:
+            return GameResult.TIE
 
-        elif self.user_action == GameAction.PAPER:
-            if self.computer_action == GameAction.ROCK:
-                print("Paper covers rock. You won!")
-            else:
-                print("Scissors cuts paper. You lost!")
-        
-        elif self.user_action == GameAction.SCISSOR:
-            if self.computer_action == GameAction.ROCK:
-                print("Rock smashes scissors. You lost!")
-            else:
-                print("Scissors cuts paper. You won!")
-
+        elif user_action == GameAction.ROCK:
+            return GameResult.VICTORY if computer_action == GameAction.SCISSOR else GameResult.DEFEAT
+            
+        elif user_action == GameAction.PAPER:
+            return GameResult.VICTORY if computer_action == GameAction.ROCK else GameResult.DEFEAT
+            
+        elif user_action == GameAction.SCISSOR:
+            return GameResult.VICTORY if computer_action == GameAction.PAPER else GameResult.DEFEAT
 
     def play_another_round(self):
         another_round = input("\nAnother round? (y/n): ")
@@ -62,7 +52,7 @@ class MainGame:
                 continue
 
             self.computer_action = self.get_computer_action()
-            self.assess_game()
+
 
             if not self.play_another_round():
                 break
