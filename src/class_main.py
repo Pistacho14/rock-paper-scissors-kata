@@ -66,6 +66,7 @@ class MainGame:
                 continue
 
             self.computer_action = self.get_computer_action()
+            self.assess_game(self.user_action, self.computer_action)
 
 
             if not self.play_another_round():
