@@ -1,13 +1,13 @@
-from enum import IntEnum
+from enum import Enum
 
 
-class GameAction(IntEnum):
+class GameAction(Enum):
 
     ROCK = 0
     PAPER = 1
     SCISSOR = 2
 
-class GameResult(IntEnum):
+class GameResult(Enum):
 
     TIE = 0
     VICTORY = 1

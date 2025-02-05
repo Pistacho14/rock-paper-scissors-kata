@@ -1,6 +1,6 @@
 import pytest
-from src.class_main import MainGame
-from src.enum import GameAction, GameResult
+from main import MainGame
+from src.actions import GameAction, GameResult
 
 
 

@@ -1,5 +1,5 @@
 import random
-from src.enum import GameAction, GameResult
+from src.actions import GameAction, GameResult
 
 class MainGame:
 
@@ -26,6 +26,7 @@ class MainGame:
 
     def assess_game(self, user_action, computer_action):
         if user_action == computer_action:
+            print("It's a tie!")
             return GameResult.TIE
 
         elif user_action == GameAction.ROCK:
@@ -71,3 +72,7 @@ class MainGame:
 
             if not self.play_another_round():
                 break
+
+
+if __name__ == "__main__":
+    MainGame().main()
