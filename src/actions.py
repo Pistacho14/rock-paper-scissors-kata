@@ -12,3 +12,8 @@ class GameResult(Enum):
     TIE = 0
     VICTORY = 1
     DEFEAT = 2
+
+dic_actions = {
+    "ROCK": "SCISSOR", 
+    "SCISSOR": "PAPER", 
+    "PAPER": "ROCK"}

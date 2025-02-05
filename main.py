@@ -1,7 +1,8 @@
 import random
-from src.actions import GameAction, GameResult
+from src.actions import GameAction, GameResult, dic_actions
 
 class MainGame:
+
 
     def __init__(self):
         self.user_action = None
