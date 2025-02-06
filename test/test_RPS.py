@@ -1,12 +1,12 @@
 import pytest
 from main import MainGame
-from src.actions import GameAction, GameResult
+from src.actions import GameResult ,GameAction
 
 
 @pytest.mark.draw
 def test_draw():
     game = MainGame()
-    assert GameResult.TIE == game.assess_game(GameAction.ROCK, GameAction.ROCK)
+    assert GameResult.TIE == game.assess_game(GameAction.ROCK,GameAction.ROCK)
     assert GameResult.TIE == game.assess_game(GameAction.SCISSOR, GameAction.SCISSOR)
     assert GameResult.TIE == game.assess_game(GameAction.PAPER, GameAction.PAPER)
 
