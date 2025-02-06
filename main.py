@@ -21,7 +21,6 @@ class MainGame:
         game_choices_str = ", ".join(game_choices)
         user_selection = int(input(f"\nPick a choice ({game_choices_str}): "))
         self.user_action = GameAction(user_selection)
-        print(self.user_action)
         return self.user_action
 
     def assess_game(self, user_action, computer_action):
@@ -29,9 +28,10 @@ class MainGame:
             print("It's a tie!")
             return GameResult.TIE
 
-        elif computer_action == dic_actions.get(user_action):
+        elif computer_action in dic_actions.get(user_action):
             print("You won!")
             return GameResult.VICTORY
+            
         else:
             print("You loose!")
             return GameResult.DEFEAT
