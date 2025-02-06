@@ -6,6 +6,8 @@ class GameAction(Enum):
     ROCK = 0
     PAPER = 1
     SCISSOR = 2
+    LIZZARD = 3
+    SPOCK = 4
 
 class GameResult(Enum):
 
@@ -14,6 +16,8 @@ class GameResult(Enum):
     DEFEAT = 2
 
 dic_actions = {
-    GameAction.ROCK: GameAction.SCISSOR,
-    GameAction.PAPER: GameAction.ROCK,
-    GameAction.SCISSOR: GameAction.PAPER}
+    GameAction.ROCK: (GameAction.SCISSOR, GameAction.LIZZARD),
+    GameAction.PAPER: (GameAction.ROCK, GameAction.SPOCK),
+    GameAction.SCISSOR: (GameAction.PAPER, GameAction.LIZZARD),
+    GameAction.LIZZARD: (GameAction.PAPER, GameAction.SPOCK),
+    GameAction.SPOCK: (GameAction.SCISSOR, GameAction.ROCK)}
