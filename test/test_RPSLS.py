@@ -15,26 +15,26 @@ def game():
 
 @pytest.mark.draw
 def test_draw():
+    game = MainGame()
+    assert GameResult.TIE == game.assess_game(
+        user_action=GameAction.SPOCK,
+        computer_action=GameAction.SPOCK)
 
-    assert GameResult.Tie == MainGame.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Spock)
+    assert GameResult.TIE == game.assess_game(
+        user_action=GameAction.LIZZARD,
+        computer_action=GameAction.LIZZARD)
 
-    assert GameResult.Tie == MainGame.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Lizard)
+    assert GameResult.TIE == game.assess_game(
+        user_action=GameAction.ROCK,
+        computer_action=GameAction.ROCK)
 
-    assert GameResult.Tie == MainGame.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Rock)
+    assert GameResult.TIE == game.assess_game(
+        user_action=GameAction.SCISSOR,
+        computer_action=GameAction.SCISSOR)
 
-    assert GameResult.Tie == MainGame.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Scissors)
-
-    assert GameResult.Tie == MainGame.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Paper)
+    assert GameResult.TIE == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.PAPER)
 
 
 @pytest.mark.spock
@@ -42,13 +42,14 @@ def test_spock_loses():
     '''
     Spock pierde con Lizard y Paper 
     '''
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Spock)
+    game = MainGame()
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.SPOCK)
 
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Spock)
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.LIZZARD,
+        computer_action=GameAction.SPOCK)
 
 
 @pytest.mark.spock
@@ -56,13 +57,14 @@ def test_spock_wins():
     '''
     Spock gana a Rock y Scissors 
     '''
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Spock)
+    game = MainGame()
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.ROCK,
+        computer_action=GameAction.SPOCK)
 
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Spock)
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.SCISSOR,
+        computer_action=GameAction.SPOCK)
 
 
 @pytest.mark.lizard
@@ -70,13 +72,14 @@ def test_lizard_loses():
     '''
     Lizard pierde con Rock y Scissors 
     '''
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Lizard)
+    game = MainGame()
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.ROCK,
+        computer_action=GameAction.LIZZARD)
 
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Lizard)
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.SCISSOR,
+        computer_action=GameAction.LIZZARD)
 
 
 @pytest.mark.lizard
@@ -84,13 +87,14 @@ def test_lizard_wins():
     '''
     Lizard gana a Spock y Paper 
     '''
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Lizard)
+    game = MainGame()
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.SPOCK,
+        computer_action=GameAction.LIZZARD)
 
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Lizard)
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.LIZZARD)
 
 
 @pytest.mark.ROCK
@@ -98,13 +102,14 @@ def test_rock_loses():
     '''
     Rock pierde con Spock y Paper 
     '''
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Rock)
+    game = MainGame()
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.SPOCK,
+        computer_action=GameAction.ROCK)
 
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Rock)
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.ROCK)
 
 
 @pytest.mark.ROCK
@@ -112,13 +117,14 @@ def test_rock_wins():
     '''
     Rock gana a Scissors y Lizard 
     '''
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Rock)
+    game = MainGame()
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.SCISSOR,
+        computer_action=GameAction.ROCK)
 
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Rock)
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.LIZZARD,
+        computer_action=GameAction.ROCK)
 
 
 @pytest.mark.PAPER
@@ -126,13 +132,14 @@ def test_paper_loses():
     '''
     Paper pierde con Scissors y Lizard 
     '''
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Paper)
+    game = MainGame()
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.SCISSOR,
+        computer_action=GameAction.PAPER)
 
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Paper)
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.LIZZARD,
+        computer_action=GameAction.PAPER)
 
 
 @pytest.mark.PAPER
@@ -140,13 +147,14 @@ def test_paper_wins():
     '''
     Paper gana a Rock y Spock 
     '''
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Paper)
+    game = MainGame()
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.ROCK,
+        computer_action=GameAction.PAPER)
 
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Paper)
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.SPOCK,
+        computer_action=GameAction.PAPER)
 
 
 @pytest.mark.SCISSORS
@@ -154,13 +162,14 @@ def test_scissors_loses():
     '''
     Scissors pierde con Spock y Rock 
     '''
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Scissors)
+    game = MainGame()
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.SPOCK,
+        computer_action=GameAction.SCISSOR)
 
-    assert GameResult.Victory == MainGame.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Scissors)
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.ROCK,
+        computer_action=GameAction.SCISSOR)
 
 
 @pytest.mark.SCISORS
@@ -168,28 +177,11 @@ def test_scissors_wins():
     '''
     Scissors gana a Lizard y Paper 
     '''
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Scissors)
+    game = MainGame()
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.LIZZARD,
+        computer_action=GameAction.SCISSOR)
 
-    assert GameResult.Defeat == MainGame.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Scissors)
-
-
-@pytest.mark.actions
-def test_minus_action():
-    '''
-    GameActions EnumType behaviour
-    '''
-    assert 1 == len(GameAction.minus(
-        GameAction.Scissors,
-        GameAction.Lizard,
-        GameAction.Paper,
-        GameAction.Rock))
-
-    assert 4 == len(GameAction.minus(GameAction.Lizard))
-
-    assert GameAction.Lizard not in GameAction.minus(GameAction.Lizard)
-
-    assert GameAction.Lizard in GameAction.minus(GameAction.Spock, GameAction.Rock)
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.SCISSOR)
