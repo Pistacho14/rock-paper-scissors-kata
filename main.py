@@ -1,5 +1,5 @@
 import random
-from src.actions import GameAction, GameResult, dic_actions
+from src.actions import GameAction, GameResult, beats
 
 class MainGame:
 
@@ -28,7 +28,7 @@ class MainGame:
             print("It's a tie!")
             return GameResult.TIE
 
-        elif computer_action in dic_actions.get(user_action):
+        elif computer_action in beats.get(user_action):
             print("You won!")
             return GameResult.VICTORY
             

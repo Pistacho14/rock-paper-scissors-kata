@@ -15,7 +15,7 @@ class GameResult(Enum):
     VICTORY = 1
     DEFEAT = 2
 
-dic_actions = {
+beats = {
     GameAction.ROCK: (GameAction.SCISSOR, GameAction.LIZZARD),
     GameAction.PAPER: (GameAction.ROCK, GameAction.SPOCK),
     GameAction.SCISSOR: (GameAction.PAPER, GameAction.LIZZARD),
