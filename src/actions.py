@@ -14,6 +14,6 @@ class GameResult(Enum):
     DEFEAT = 2
 
 dic_actions = {
-    "ROCK": "SCISSOR", 
-    "SCISSOR": "PAPER", 
-    "PAPER": "ROCK"}
+    GameAction.ROCK: GameAction.SCISSOR,
+    GameAction.PAPER: GameAction.ROCK,
+    GameAction.SCISSOR: GameAction.PAPER}
